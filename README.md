@@ -2,7 +2,10 @@
 
 A reusable, responsive Masonry layout (like Pinterest) built using SwiftUI — perfect for showcasing image galleries with variable heights.
 
-[Watch Demo Video](./demo.mp4)
+### 📽 Demo Video
+
+[Watch the demo video](./masonry%20layout/masonry%20layout/demo.mp4)
+
 
 ## 🚀 Features
 
