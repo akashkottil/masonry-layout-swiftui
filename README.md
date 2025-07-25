@@ -33,6 +33,9 @@ Just copy the following files into your SwiftUI project:
 ### Step 1: Define your data model
 
 ```swift
+
+import Foundation
+
 struct MasonryImage: Identifiable {
     let id = UUID()
     let imageName: String
@@ -94,6 +97,8 @@ struct HomeView: View {
 🧱 MasonryGrid.swift
 ```swift
 
+import SwiftUI
+
 struct MasonryGrid<T: Identifiable, Content: View>: View {
     let data: [T]
     let columns: Int
@@ -114,10 +119,12 @@ struct MasonryGrid<T: Identifiable, Content: View>: View {
     }
 
     var body: some View {
+        let columnsData = splitDataIntoColumns()
+
         HStack(alignment: .top, spacing: 8) {
-            ForEach(splitDataIntoColumns(), id: \.self) { column in
+            ForEach(0..<columnsData.count, id: \.self) { columnIndex in
                 VStack(spacing: 8) {
-                    ForEach(column) { item in
+                    ForEach(columnsData[columnIndex]) { item in
                         content(item)
                     }
                 }
@@ -125,6 +132,7 @@ struct MasonryGrid<T: Identifiable, Content: View>: View {
         }
     }
 }
+
 ```
 
 📸 Preview
